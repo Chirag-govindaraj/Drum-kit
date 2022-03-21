@@ -25,14 +25,20 @@ footer {
 .naming{
   position: relative;
 }
-p{
+/* p{
 
   position: absolute;
   display: inline-block;
 
-}
+} */
+.img-with-txt{
 
-.recordName{
+  width: 120px;
+  margin: 0 auto;
+  color:White;
+
+}
+/* .recordName{
 
   bottom:50px;
   right: 755px;
@@ -44,7 +50,7 @@ p{
   bottom:50px;
   right: 710px;
   color: white;
-}
+} */
 .w {
   background-image: url("images/tom1.png");
 }
