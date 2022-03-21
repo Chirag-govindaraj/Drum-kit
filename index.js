@@ -1,12 +1,22 @@
+var rec = [];
+var recB = document.querySelector("#record").addEventListener("click", function() {
+  console.log("recording...");
+  rec=[];
+
+});
+
+
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
 
   document.querySelectorAll("button")[i].addEventListener("click", function() {
 
     var buttonInnerHTML = this.innerHTML;
+    rec.push(buttonInnerHTML);
+    console.log(rec);
 
     playSound(buttonInnerHTML);
-     buttonAnimation(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
   });
 
 
@@ -16,7 +26,9 @@ for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 document.addEventListener("keydown", function(event) {
 
   playSound(event.key);
-   buttonAnimation(event.key);
+  rec.push(event.key);
+  console.log(rec);
+  buttonAnimation(event.key);
 
 });
 
@@ -75,12 +87,38 @@ function playSound(buttons) {
 
 }
 
-function buttonAnimation(currentKey){
+function buttonAnimation(currentKey) {
 
-  var activeButton = document.querySelector("."+currentKey);
+  var activeButton = document.querySelector("." + currentKey);
   activeButton.classList.add("pressed");
-  setTimeout(function () { activeButton.classList.remove("pressed");}, 100);
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
 
 
 
 }
+
+var playB = document.querySelector("#play").addEventListener("click", function(){
+  console.log("playing");
+
+  var k=0;
+  var playLength=rec.length;
+
+  function playBack(){
+    setTimeout(function(){
+      playSound(rec[k]);
+      k++;
+      if(k<playLength){
+        playBack();
+      }
+    },500);
+
+
+  }
+  playBack();
+
+}
+
+
+);

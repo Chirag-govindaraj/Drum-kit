@@ -16,6 +16,35 @@ footer {
   font-family: sans-serif;
 }
 
+.record_play{
+
+ padding-bottom: 100px;
+
+
+}
+.naming{
+  position: relative;
+}
+p{
+
+  position: absolute;
+  display: inline-block;
+
+}
+
+.recordName{
+
+  bottom:50px;
+  right: 755px;
+  color: white;
+}
+
+.playName{
+
+  bottom:50px;
+  right: 710px;
+  color: white;
+}
 .w {
   background-image: url("images/tom1.png");
 }
